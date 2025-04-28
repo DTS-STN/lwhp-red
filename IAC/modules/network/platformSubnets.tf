@@ -22,20 +22,10 @@ resource "azurerm_subnet" "app_service" {
   }
   address_prefixes = ["11.0.1.0/24"]
 }
+
 resource "azurerm_subnet_network_security_group_association" "app_service_nsg_association" {
   network_security_group_id = azurerm_network_security_group.nsg.id
   subnet_id                 = azurerm_subnet.app_service.id
-}
-
-resource "azurerm_subnet" "restricted_peps" {
-  name                 = "snet-restricted-pep-${var.platform}-${var.environment}"
-  resource_group_name  = var.networking_rg_name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = ["11.0.0.128/26"]
-}
-resource "azurerm_subnet_network_security_group_association" "restricted_peps_nsg_association" {
-  network_security_group_id = azurerm_network_security_group.nsg.id
-  subnet_id                 = azurerm_subnet.restricted_peps.id
 }
 
 resource "azurerm_subnet" "build_agents" {
