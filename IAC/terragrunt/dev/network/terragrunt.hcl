@@ -16,5 +16,4 @@ terraform {
 
 inputs = {
     networking_rg_name = dependency.resourceGroups.outputs.networking_rg_name
-    networking_rg_id = dependency.resourceGroups.outputs.networking_rg_id
 }
