@@ -35,7 +35,7 @@ terraform {
 }
 
 inputs  = {
-    agw_shared_rg_name = dependency.resourceGroups.outputs.agw_shared_rg_name
+    agw_rg_name = dependency.resourceGroups.outputs.agw_rg_name
     sku_name = "Standard_v2"
     sku_tier = "Standard_v2"
     application_gateway_subnet_id = dependency.network.outputs.application_gateway_subnet_id
