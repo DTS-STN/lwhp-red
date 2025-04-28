@@ -3,14 +3,14 @@ locals {
   ssl_certificate_name                   = "changeme"
 }
 resource "azurerm_user_assigned_identity" "appGatewayIdentity" {
-  resource_group_name = var.agw_shared_rg_name
+  resource_group_name = var.agw_rg_name
   location            = var.location
   name                = "id-appgw-${var.platform}-${var.environment}"
 }
 
 resource "azurerm_application_gateway" "application_gw" {
   name                = "agw-${var.platform}-${var.environment}"
-  resource_group_name = var.agw_shared_rg_name
+  resource_group_name = var.agw_rg_name
   location            = var.location
 
   sku {

@@ -45,7 +45,7 @@ variable "appgw_log_retention_days" {
   type    = string
   default = 30
 }
-variable "agw_shared_rg_name" {
+variable "agw_rg_name" {
   type    = string
   default = ""
 }
