@@ -49,7 +49,7 @@ variable "privatelink_dns_id" {
 variable "platform_vnet_name" {
   type = string
 }
-variable "snet_pep_id" {
+variable "snet_peps_id" {
   type = string
 }
 variable "snet_app_service_id" {

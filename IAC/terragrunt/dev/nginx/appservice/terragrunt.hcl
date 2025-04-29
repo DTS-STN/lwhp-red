@@ -50,7 +50,7 @@ inputs = {
     kv_id = dependency.storage.outputs.kv_id
     law_id = dependency.logAnalytics.outputs.law_id
     kv_uri = dependency.storage.outputs.kv_uri
-    snet_pep_id = dependency.network.outputs.snet_pep_id
+    snet_peps_id = dependency.network.outputs.snet_peps_id
     acr_id =  dependency.acr.outputs.acr_id
     email_receivers = [
       {

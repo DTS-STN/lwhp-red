@@ -9,7 +9,7 @@ resource "azurerm_private_endpoint" "acr_pep" {
   name                = "pep-acr-${var.platform}-${var.environment}"
   location            = var.location
   resource_group_name = var.acr_rg_name
-  subnet_id           = var.snet_restricted_pep_id
+  subnet_id           = var.snet_peps_id
   private_service_connection {
     name                           = "con-acr-${var.platform}-${var.environment}"
     private_connection_resource_id = azurerm_container_registry.acr.id

@@ -4,14 +4,11 @@ output "application_gateway_subnet_id" {
 output "platform_vnet_id" {
   value = azurerm_virtual_network.vnet.id
 }
-output "snet_pep_id" {
-  value = azurerm_subnet.pep.id
+output "snet_peps_id" {
+  value = azurerm_subnet.peps.id
 }
 output "snet_app_service_id" {
  value = azurerm_subnet.app_service.id 
-}
-output "snet_restricted_pep_id" {
-  value = azurerm_subnet.restricted_pep.id
 }
 output "snet_build_agents_id" {
   value = azurerm_subnet.build_agents.id

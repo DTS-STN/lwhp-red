@@ -7,7 +7,7 @@ variable "location" {
 variable "acr_rg_name" {
   type = string
 }
-variable "snet_restricted_pep_id" {
+variable "snet_peps_id" {
   type = string
 }
 variable "privatelink_dns_id" {
