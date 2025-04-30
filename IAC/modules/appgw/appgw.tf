@@ -1,6 +1,6 @@
 locals {
   frontend_private_ip_configuration_name = "frontend_private_ip_configuration"
-  ssl_certificate_name                   = "changeme"
+  ssl_certificate_name                   = "cert-${var.platform}-${var.environment}"
 }
 resource "azurerm_user_assigned_identity" "appGatewayIdentity" {
   resource_group_name = var.agw_rg_name

@@ -6,10 +6,6 @@ dependency "resourceGroups" {
   config_path = "..//resourceGroups" #**NOTE: double slash // is intended **
 }
 
-dependency "storage" {
-  config_path = "..//storage" #**NOTE: double slash // is intended **
-}
-
 dependency "logAnalytics" {
   config_path = "..//logAnalytics" #**NOTE: double slash // is intended **
 }
@@ -39,7 +35,6 @@ inputs  = {
     sku_name = "Standard_v2"
     sku_tier = "Standard_v2"
     application_gateway_subnet_id = dependency.network.outputs.application_gateway_subnet_id
-    kv_id = dependency.storage.outputs.kv_id
     law_id = dependency.logAnalytics.outputs.law_id
     backend_address_pools = [
       {
@@ -132,7 +127,6 @@ inputs  = {
       backend_address_pool_name   = "pool-nginx"
       backend_http_settings_name  = "http-settings-nginx"
       priority                    = 100
-      redirect_configuration_name = ""
       url_path_map_name = ""
     },
     {
@@ -142,7 +136,6 @@ inputs  = {
       backend_address_pool_name   = "pool-SCLabs"
       backend_http_settings_name  = "http-settings-SCLabs"
       priority                    = 101
-      redirect_configuration_name = ""
       url_path_map_name = ""
     },
         {
@@ -152,7 +145,6 @@ inputs  = {
       backend_address_pool_name   = "pool-SCLabs-int"
       backend_http_settings_name  = "http-settings-SCLabs-int"
       priority                    = 102
-      redirect_configuration_name = ""
       url_path_map_name = ""
     }
     ]

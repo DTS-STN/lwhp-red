@@ -4,7 +4,6 @@ variable "environment" {
 }
 variable "location" {
   type    = string
-  default = "Canada Central"
 }
 variable "subscription_id" {
   type = string

@@ -28,18 +28,6 @@ variable "networking_rg_name" {
 }
 variable "app_service_sku" {
   type    = string
-  default = "I1"
-}
-variable "log_rg" {
-  type    = string
-  default = ""
-}
-variable "insights_id" {
-  type    = string
-  default = ""
-}
-variable "kv_id" {
-  type = string
 }
 variable "appgw_log_retention_days" {
   type    = string
@@ -61,9 +49,6 @@ variable "application_gateway_subnet_id" {
   type = string
 }
 variable "appgw_private_ip" {
-  type = string
-}
-variable "environment_domain_name" {
   type = string
 }
 variable "backend_address_pools" {
@@ -115,17 +100,6 @@ variable "request_routing_rules" {
     backend_http_settings_name = string
     priority                   = number
   }))
-}
-variable "redirect_configurations" {
-  type = list(object({
-    name                 = string
-    redirect_type        = string
-    target_listener_name = string
-    target_url           = string
-    include_path         = bool
-    include_query_string = bool
-  }))
-  default = []
 }
 variable "wildcard_ssl_certificate" {
   type = string
