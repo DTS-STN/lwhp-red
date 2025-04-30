@@ -6,10 +6,6 @@ dependency "resourceGroups" {
   config_path = "../..//resourceGroups" #**NOTE: double slash // is intended **
 }
 
-dependency "storage" {
-  config_path = "../..//storage" #**NOTE: double slash // is intended **
-}
-
 dependency "logAnalytics" {
   config_path = "../..//logAnalytics"
 }
@@ -47,9 +43,7 @@ inputs = {
     privatelink_dns_name = dependency.privateDns.outputs.privatelink_dns_name
     privatelink_dns_id = dependency.privateDns.outputs.privatelink_dns_id
     platform_vnet_name = dependency.network.outputs.platform_vnet_name
-    kv_id = dependency.storage.outputs.kv_id
     law_id = dependency.logAnalytics.outputs.law_id
-    kv_uri = dependency.storage.outputs.kv_uri
     snet_peps_id = dependency.network.outputs.snet_peps_id
     snet_app_service_id = dependency.network.outputs.snet_app_service_id
     acr_id =  dependency.acr.outputs.acr_id

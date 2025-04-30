@@ -4,11 +4,9 @@ variable "environment" {
 }
 variable "location" {
   type    = string
-  default = "Canada Central"
 }
 variable "base_domain" {
   type    = string
-  default = ""
 }
 variable "subscription_id" {
   type = string
@@ -26,12 +24,6 @@ variable "application_name" {
   type = string
 }
 variable "app_service_sku" {
-  type = string
-}
-variable "kv_uri" {
-  type = string
-}
-variable "kv_id" {
   type = string
 }
 variable "private_dns_rg" {
