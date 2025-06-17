@@ -35,6 +35,21 @@ variable "networking_rg_name" {
 variable "appgw_vnet_address_space" {
     type = string
 }
+variable "lwhp_vnet_address_space" {
+    type = string
+}
+variable "approved_bastion_address_space" {
+    type = string
+}
+variable "app_service_subnet_cidr"{
+    type = string
+}
+variable "build_agents_subnet_cidr" {
+    type = string
+}
+variable "private_endpoints_subnet_cidr" {
+    type = string
+}
 variable "gateway_capacity" {
     type = number
     default = 1
