@@ -110,3 +110,6 @@ variable "law_id" {
 variable "platform"{
   type = string
 }
+variable "zones" {
+  type = set(string)
+}
