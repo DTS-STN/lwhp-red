@@ -30,12 +30,13 @@ terraform {
   source = "${local.terraform_home}/appgw"
 }
 
-inputs  = {
+inputs = {
     agw_rg_name = dependency.resourceGroups.outputs.agw_rg_name
     sku_name = "Standard_v2"
     sku_tier = "Standard_v2"
     application_gateway_subnet_id = dependency.network.outputs.application_gateway_subnet_id
     law_id = dependency.logAnalytics.outputs.law_id
+    zones = ["1", "2"] #TODO: Add 2 more zones for prod environment
     backend_address_pools = [
       {
         name = "pool-nginx",
@@ -85,6 +86,7 @@ inputs  = {
     http_listeners = [
       {
         name                           = "http-listener-nginx"
+        network-config
         host_name                      = "nginx.lwhpred-phclrouge.service.cloud-nuage.canada.ca"
         require_sni                    = false
         is_https                       = false
