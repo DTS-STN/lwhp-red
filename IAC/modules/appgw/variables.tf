@@ -26,9 +26,6 @@ variable "networking_rg_name" {
   type    = string
   default = ""
 }
-variable "app_service_sku" {
-  type    = string
-}
 variable "appgw_log_retention_days" {
   type    = string
   default = 30
@@ -112,4 +109,7 @@ variable "law_id" {
 }
 variable "platform"{
   type = string
+}
+variable "zones" {
+  type = set(string)
 }
