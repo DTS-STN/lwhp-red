@@ -86,7 +86,8 @@ inputs = {
     http_listeners = [
       {
         name                           = "http-listener-nginx"
-        host_name                      = "nginx.bsim-sagi.service.cloud-nuage.canada.ca"
+        network-config
+        host_name                      = "nginx.lwhpred-phclrouge.service.cloud-nuage.canada.ca"
         require_sni                    = false
         is_https                       = false
       },
@@ -104,7 +105,7 @@ inputs = {
       # },
       {
         name                           = "https-listener-nginx"
-        host_name                      = "nginx.bsim-sagi.service.cloud-nuage.canada.ca"
+        host_name                      = "nginx.lwhpred-phclrouge.service.cloud-nuage.canada.ca"
         require_sni                    = false
         is_https                       = true
       },
