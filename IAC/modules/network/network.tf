@@ -58,3 +58,8 @@ resource "azurerm_subnet_route_table_association" "rt_association_esdc_hub" {
   subnet_id      = azurerm_subnet.snet_esdc_hub_peered_gateway.id
   route_table_id = azurerm_route_table.route_table_perimeter_firewall.id
 }
+
+resource "azurerm_subnet_network_security_group_association" "snet_nsg_association_esdc_hub" {
+  subnet_id                 = azurerm_subnet.snet_esdc_hub_peered_gateway.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}

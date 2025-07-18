@@ -69,7 +69,7 @@ resource "azurerm_monitor_diagnostic_setting" "appservice_diagnostic_settings" {
   enabled_log {
     category_group = "AllLogs"
   }
-  metric {
+  enabled_metric {
     category = "AllMetrics"
   }
 }
