@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "vnet" {
   name                = "vnet-${var.platform}-${var.environment}"
   resource_group_name = var.networking_rg_name
   location            = var.location
-  address_space       = [var.lwhp_vnet_address_space] #TODO add the following address space when you receive it //var.approved_bastion_address_space]
+  address_space       = [var.lwhp_vnet_address_space, var.approved_bastion_address_space] #TODO add the following address space when you receive it //var.approved_bastion_address_space]
 }
 
 resource "azurerm_virtual_network_peering" "peer_hub_to_platform" {
