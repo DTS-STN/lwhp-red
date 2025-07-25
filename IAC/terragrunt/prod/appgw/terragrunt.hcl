@@ -24,6 +24,8 @@ dependency "nginx" {
 
 locals {
   terraform_home = "../../../modules/"
+  varfile = find_in_parent_folders("lwhp-red-prod.json")
+  vardata = jsondecode(file(local.varfile))
 }
 
 terraform {
@@ -36,6 +38,7 @@ inputs  = {
     sku_tier = "Standard_v2"
     application_gateway_subnet_id = dependency.network.outputs.application_gateway_subnet_id
     law_id = dependency.logAnalytics.outputs.law_id
+    zones = ["1", "2", "3"]
     backend_address_pools = [
       {
         name = "pool-nginx",
@@ -85,37 +88,37 @@ inputs  = {
     http_listeners = [
       {
         name                           = "http-listener-nginx"
-        host_name                      = "nginx.lwhpred-phclrouge.service.cloud-nuage.canada.ca"
+        host_name                      = "nginx.${local.vardata.base_domain}"
         require_sni                    = false
         is_https                       = false
       },
       # {
       #   name                           = "http-listener-SCLabs"
-      #   host_name                      = "sclabs.bsim-sagi.service.cloud-nuage.canada.ca"
+      #   host_name                      = "sclabs.${local.vardata.base_domain}"
       #   require_sni                    = false
       #   is_https                       = false
       # },
       # {
       #   name                           = "http-listener-SCLabs-int"
-      #   host_name                      = "sclabs-int.bsim-sagi.service.cloud-nuage.canada.ca"
+      #   host_name                      = "sclabs-int.${local.vardata.base_domain}"
       #   require_sni                    = false
       #   is_https                       = false
       # },
       {
         name                           = "https-listener-nginx"
-        host_name                      = "nginx.lwhpred-phclrouge.service.cloud-nuage.canada.ca"
+        host_name                      = "nginx.${local.vardata.base_domain}"
         require_sni                    = false
         is_https                       = true
       },
       # {
       #   name                           = "https-listener-SCLabs"
-      #   host_name                      = "sclabs.bsim-sagi.service.cloud-nuage.canada.ca"
+      #   host_name                      = "sclabs.${local.vardata.base_domain}"
       #   require_sni                    = false
       #   is_https                       = true
       # },
       #       {
       #   name                           = "https-listener-SCLabs-int"
-      #   host_name                      = "sclabs-int.bsim-sagi.service.cloud-nuage.canada.ca"
+      #   host_name                      = "sclabs-int.${local.vardata.base_domain}"
       #   require_sni                    = false
       #   is_https                       = true
       # }
